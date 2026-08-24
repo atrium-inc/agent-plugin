@@ -38,7 +38,7 @@ Almost every real question starts the same way:
   page. Say "at least N" rather than "N" when it does.
 - A campaign in `draft` has never delivered. Zero leads against a draft is not
   underperformance, it is a campaign that was never launched — say so instead of
-  analysing it.
+  analyzing it.
 - Prices and budgets are **cents**. `18000` is `$180.00`. Format for the human;
   never do arithmetic on a formatted string.
 - A brand-new campaign may legitimately have no numbers yet. Report that as "too

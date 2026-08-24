@@ -1,6 +1,6 @@
 ---
 name: buying-tv
-description: How Atrium's TV supply is organised and how to size a budget. Use before recommending where a campaign should run, which tier to pick, what a budget will actually deliver, or when the user asks what networks they can advertise on.
+description: How Atrium's TV supply is organized and how to size a budget. Use before recommending where a campaign should run, which tier to pick, what a budget will actually deliver, or when the user asks what networks they can advertise on.
 ---
 
 # Buying TV on the Atrium Performance Network
