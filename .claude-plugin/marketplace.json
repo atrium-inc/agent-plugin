@@ -1,0 +1,14 @@
+{
+  "name": "atrium",
+  "owner": { "name": "Atrium", "url": "https://go-atrium.com" },
+  "description": "Plan, buy and measure TV and streaming campaigns on the Atrium Performance Network, from your terminal.",
+  "plugins": [
+    {
+      "name": "atrium",
+      "source": "./plugins/atrium",
+      "description": "Buy television from your coding agent. Supply, campaigns, creative and leads on the Atrium Performance Network.",
+      "version": "0.1.0",
+      "keywords": ["advertising", "tv", "ctv", "streaming", "media-buying", "leads"]
+    }
+  ]
+}

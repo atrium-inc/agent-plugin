@@ -1,0 +1,14 @@
+{
+  "name": "atrium",
+  "version": "0.1.0",
+  "description": "Buy television from your coding agent. Supply, campaigns, creative and leads on the Atrium Performance Network.",
+  "author": { "name": "Atrium", "url": "https://go-atrium.com" },
+  "homepage": "https://go-atrium.com",
+  "mcpServers": {
+    "atrium": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/server.mjs"],
+      "env": { "ATRIUM_API_KEY": "${ATRIUM_API_KEY}" }
+    }
+  }
+}
