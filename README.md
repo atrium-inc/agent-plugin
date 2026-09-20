@@ -9,7 +9,7 @@ the Atrium Performance Network from Claude Code, Codex or Cursor.
 ```
 
 Then run the bundled **setup** skill — it walks through creating an API key at
-[app.go-atrium.com/developers](https://app.go-atrium.com/developers) and
+[app.atrium.run/developers](https://app.atrium.run/developers) and
 exporting it.
 
 ## What it gives the agent
@@ -35,6 +35,6 @@ spend a budget without anyone looking at the price is not a feature.
 | Variable | Purpose |
 |---|---|
 | `ATRIUM_API_KEY` | Required. Created under Developers › API, shown once. |
-| `ATRIUM_API_URL` | Optional. Defaults to `https://app.go-atrium.com`. |
+| `ATRIUM_API_URL` | Optional. Defaults to `https://app.atrium.run`. |
 
 Keep the key in your shell environment. Never commit it.

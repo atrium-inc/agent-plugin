@@ -5,7 +5,7 @@ description: Working with Atrium — TV and streaming advertising, campaigns, le
 
 # Atrium
 
-Atrium is a lead-generation platform for television. An advertiser describes
+Atrium is TV advertising for everyone: premium and local television, made fast, easy, and affordable. An advertiser describes
 what they sell, Atrium makes the commercial, buys streaming and broadcast
 inventory on the Atrium Performance Network, and measures the calls, texts and
 bookings that come back.
@@ -19,7 +19,7 @@ Read: `atrium_whoami`, `atrium_list_campaigns`, `atrium_list_leads`,
 oversight — spending an advertiser's budget is a decision a person makes while
 looking at the price. If the user asks you to launch, say plainly that launching
 happens in the product and point them at
-`https://app.go-atrium.com/campaigns`.
+`https://app.atrium.run/campaigns`.
 
 ## The order to do things in
 

@@ -2,8 +2,8 @@
   "name": "atrium",
   "version": "0.1.0",
   "description": "Buy television from your coding agent. Supply, campaigns, creative and leads on the Atrium Performance Network.",
-  "author": { "name": "Atrium", "url": "https://go-atrium.com" },
-  "homepage": "https://go-atrium.com",
+  "author": { "name": "Atrium", "url": "https://atrium.run" },
+  "homepage": "https://atrium.run",
   "mcpServers": {
     "atrium": {
       "command": "node",

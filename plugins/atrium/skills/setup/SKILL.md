@@ -13,7 +13,7 @@ keys and shows each one exactly once.
 
 Tell the user, in these words:
 
-1. Open **https://app.go-atrium.com/developers** and choose the **API** tab.
+1. Open **https://app.atrium.run/developers** and choose the **API** tab.
 2. Create a key. Pick **Read** unless they specifically want the agent to add
    products — **Write** is only needed for `atrium_add_product`.
 3. Copy it immediately. Atrium shows a key once and stores only a hash; if it is
@@ -48,4 +48,4 @@ the key may write. If it returns an error, read it literally:
 ## Pointing at somewhere other than production
 
 `ATRIUM_API_URL` overrides the host, for a preview deployment or local work.
-Default is `https://app.go-atrium.com`.
+Default is `https://app.atrium.run`.

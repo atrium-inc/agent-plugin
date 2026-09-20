@@ -19,7 +19,7 @@
  * budget without them looking at it is not a feature.
  */
 
-const BASE = process.env.ATRIUM_API_URL || 'https://app.go-atrium.com'
+const BASE = process.env.ATRIUM_API_URL || 'https://app.atrium.run'
 const KEY = process.env.ATRIUM_API_KEY || ''
 
 // ── Tools ───────────────────────────────────────────────────────────────────
