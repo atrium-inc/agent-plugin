@@ -6,7 +6,7 @@ description: Connect this agent to an Atrium account. Use when Atrium tools retu
 # Connect Atrium
 
 The Atrium tools talk to a real advertiser account and can read real spend and
-real leads, so they need a key. There is no OAuth — Atrium issues scoped API
+real leads, so they need a key. There is no OAuth. Atrium issues scoped API
 keys and shows each one exactly once.
 
 ## Get a key
@@ -14,8 +14,12 @@ keys and shows each one exactly once.
 Tell the user, in these words:
 
 1. Open **https://app.atrium.run/developers** and choose the **API** tab.
-2. Create a key. Pick **Read** unless they specifically want the agent to add
-   products — **Write** is only needed for `atrium_add_product`.
+2. Create a key. **Read** plans and prices. **Write** also drafts campaigns and
+   adds creatives and products. **Launch** also takes campaigns live, so it
+   carries spend caps: a per-campaign cap and a monthly cap, in dollars. A
+   go-live above a cap waits for the account owner to approve it by email.
+   Leave both caps blank and every go-live asks. Pick a **test** key to
+   rehearse everything with nothing charged.
 3. Copy it immediately. Atrium shows a key once and stores only a hash; if it is
    lost, the only fix is to revoke it and make another.
 
@@ -28,7 +32,7 @@ export ATRIUM_API_KEY="atr_live_…"
 ```
 
 To persist it, add that line to `~/.zshrc` or `~/.bashrc`. **Never** write it
-into `.env`, `CLAUDE.md`, or anything git tracks — a live key in a commit is a
+into `.env`, `CLAUDE.md`, or anything git tracks: a live key in a commit is a
 live key in every clone.
 
 The MCP server reads the variable at startup, so the agent has to be restarted
@@ -39,11 +43,11 @@ after setting it.
 Call `atrium_whoami`. It returns the advertiser the key belongs to and whether
 the key may write. If it returns an error, read it literally:
 
-- **"No ATRIUM_API_KEY set"** — the variable is not in this shell, or the agent
+- **"No ATRIUM_API_KEY set"**: the variable is not in this shell, or the agent
   was started before it was exported.
-- **"That key is not valid"** — wrong key, or it was revoked.
-- **"read-only"** on a write — the key has the Read scope; a new key is needed,
-  scopes cannot be changed after issue.
+- **"That key is not valid"**: wrong key, or it was revoked.
+- **"scope does not allow it"**: drafting needs Write, going live needs
+  Launch; a new key is needed, scopes cannot be changed after issue.
 
 ## Pointing at somewhere other than production
 
