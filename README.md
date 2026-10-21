@@ -8,27 +8,50 @@ the Atrium Performance Network from Claude Code, Codex or Cursor.
 /plugin install atrium@atrium
 ```
 
-Then run the bundled **setup** skill — it walks through creating an API key at
+Then run the bundled **setup** skill. It walks through creating an API key at
 [app.atrium.run/developers](https://app.atrium.run/developers) and
 exporting it.
 
+## No install: the hosted connection
+
+Any agent that speaks MCP (Model Context Protocol) over HTTP can use the same
+tools with nothing installed. Point it at `https://app.atrium.run/api/mcp`
+with the API key as the bearer token:
+
+```
+Authorization: Bearer atr_live_...
+```
+
+Same 20 tools, same rules. The plugin is for coding agents that run tools over
+stdio; the hosted connection is for everything else (Claude.ai connectors,
+ChatGPT, custom agents).
+
 ## What it gives the agent
 
-**Tools** — `atrium_whoami`, `atrium_list_campaigns`, `atrium_list_leads`,
-`atrium_list_products`, `atrium_add_product`.
+**Tools:** plan and price (`atrium_whoami`, `atrium_list_advertisers`,
+`atrium_list_networks`, `atrium_estimate`), build (`atrium_add_creative`,
+`atrium_create_campaign`, `atrium_update_campaign`, `atrium_add_product`),
+launch (`atrium_launch_check`, `atrium_go_live`, `atrium_pause_campaign`,
+`atrium_resume_campaign`) and results (`atrium_list_campaigns`,
+`atrium_get_campaign`, `atrium_delivery`, `atrium_delivery_breakdown`,
+`atrium_list_leads`).
 
-**Skills** — `setup` (connect an account), `atrium` (how the product fits
+**Skills:** `setup` (connect an account), `atrium` (how the product fits
 together, and how to read its numbers honestly), `buying-tv` (how the supply
-tiers work, how to size a budget, and the mistakes that cost money).
+tiers work and how to size a budget), `buying-a-campaign` (the end-to-end
+path: price, draft, check, go live, report).
 
 The skills are the point. Wrapping an API in tools lets an agent *call* Atrium;
 the skills are what make it good at buying television.
 
-## What it deliberately will not do
+## How money is kept safe
 
-Launch a campaign, or move money. Every write stages something a person approves
-in the product — the same rule the in-app assistant follows. An agent that can
-spend a budget without anyone looking at the price is not a feature.
+Going live needs a **launch** key, and every launch key carries a spend cap: a
+per-campaign cap and a monthly cap, set in dollars when the key is made. A
+go-live above a cap, or from a key with no cap at all, is parked, and the
+account owner gets one email with one Approve link. Nothing spends until they
+click. The rule lives on the server, in the key, so no agent can loosen it. A
+**test** key runs every step with nothing charged.
 
 ## Configuration
 

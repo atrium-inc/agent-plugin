@@ -1,6 +1,6 @@
 ---
 name: atrium
-description: Working with Atrium — TV and streaming advertising, campaigns, leads and products. Use whenever the user mentions Atrium, asks about their TV or CTV campaigns, their ad spend, the leads their advertising produced, or wants to plan a commercial.
+description: Working with Atrium, TV and streaming advertising, campaigns, leads and products. Use whenever the user mentions Atrium, asks about their TV or CTV campaigns, their ad spend, the leads their advertising produced, or wants to plan a commercial.
 ---
 
 # Atrium
@@ -10,25 +10,30 @@ what they sell, Atrium makes the commercial, buys streaming and broadcast
 inventory on the Atrium Performance Network, and measures the calls, texts and
 bookings that come back.
 
-## What the tools here can and cannot do
+## What the tools here can do
 
-Read: `atrium_whoami`, `atrium_list_campaigns`, `atrium_list_leads`,
-`atrium_list_products`. Write: `atrium_add_product` only.
+Plan and price: `atrium_whoami`, `atrium_list_advertisers`, `atrium_list_networks`,
+`atrium_estimate`, `atrium_list_products`. Build: `atrium_add_product`,
+`atrium_add_creative`, `atrium_create_campaign`, `atrium_update_campaign`.
+Launch: `atrium_launch_check`, `atrium_go_live`, `atrium_pause_campaign`,
+`atrium_resume_campaign`. Results: `atrium_list_campaigns`, `atrium_get_campaign`,
+`atrium_delivery`, `atrium_delivery_breakdown`, `atrium_list_leads`.
 
-**Nothing here launches a campaign or moves money.** That is deliberate, not an
-oversight — spending an advertiser's budget is a decision a person makes while
-looking at the price. If the user asks you to launch, say plainly that launching
-happens in the product and point them at
-`https://app.atrium.run/campaigns`.
+**Money moves only under a launch key, and only under its cap.** A go-live
+above the key's spend cap, or from a key with no cap, is parked until the
+account owner approves it by email. That rule lives on the server; you cannot
+loosen it, and you should not try to route around it. Read `buying-a-campaign`
+before launching anything.
 
 ## The order to do things in
 
 Almost every real question starts the same way:
 
-1. `atrium_whoami` — confirm which advertiser you are acting for. Getting this
-   wrong is worse than any other mistake here: an agency can have several, and
-   advice built on the wrong one is confidently useless.
-2. `atrium_list_products` — what they actually sell. Never propose a commercial
+1. `atrium_whoami`: confirm which advertiser you are acting for, and what the
+   key may do. Getting this wrong is worse than any other mistake here: an
+   agency can have several advertisers, and advice built on the wrong one is
+   confidently useless.
+2. `atrium_list_products`: what they actually sell. Never propose a commercial
    around an offer that is not on this list without saying you are inventing it.
 3. Then the question they asked.
 
@@ -37,7 +42,7 @@ Almost every real question starts the same way:
 - `atrium_list_leads` returns `truncated: true` when there is more than one
   page. Say "at least N" rather than "N" when it does.
 - A campaign in `draft` has never delivered. Zero leads against a draft is not
-  underperformance, it is a campaign that was never launched — say so instead of
+  underperformance, it is a campaign that was never launched. Say so instead of
   analyzing it.
 - Prices and budgets are **cents**. `18000` is `$180.00`. Format for the human;
   never do arithmetic on a formatted string.
@@ -46,6 +51,8 @@ Almost every real question starts the same way:
 
 ## Related skills
 
-- `setup` — connecting an account, and what each auth error means.
-- `buying-tv` — how the supply tiers work and how to size a budget. Read it
+- `setup`: connecting an account, and what each auth error means.
+- `buying-tv`: how the supply tiers work and how to size a budget. Read it
   before recommending where a campaign should run.
+- `buying-a-campaign`: the end-to-end path: price, draft, check, go live,
+  report. Read it before creating or launching anything.
