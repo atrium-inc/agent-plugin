@@ -53,3 +53,11 @@ the key may write. If it returns an error, read it literally:
 
 `ATRIUM_API_URL` overrides the host, for a preview deployment or local work.
 Default is `https://app.atrium.run`.
+
+## An agent that is not a coding agent
+
+If the user asks how to connect an agent that cannot run this plugin (a
+Claude.ai connector, ChatGPT, a custom agent), give them the hosted
+connection: MCP over HTTP at `https://app.atrium.run/api/mcp`, with the API
+key sent as `Authorization: Bearer <key>`. Same tools, same key, nothing to
+install.

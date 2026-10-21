@@ -12,6 +12,20 @@ Then run the bundled **setup** skill. It walks through creating an API key at
 [app.atrium.run/developers](https://app.atrium.run/developers) and
 exporting it.
 
+## No install: the hosted connection
+
+Any agent that speaks MCP (Model Context Protocol) over HTTP can use the same
+tools with nothing installed. Point it at `https://app.atrium.run/api/mcp`
+with the API key as the bearer token:
+
+```
+Authorization: Bearer atr_live_...
+```
+
+Same 20 tools, same rules. The plugin is for coding agents that run tools over
+stdio; the hosted connection is for everything else (Claude.ai connectors,
+ChatGPT, custom agents).
+
 ## What it gives the agent
 
 **Tools:** plan and price (`atrium_whoami`, `atrium_list_advertisers`,
