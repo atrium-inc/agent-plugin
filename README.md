@@ -22,15 +22,19 @@ with the API key as the bearer token:
 Authorization: Bearer atr_live_...
 ```
 
-Same 20 tools, same rules. The plugin is for coding agents that run tools over
-stdio; the hosted connection is for everything else (Claude.ai connectors,
+Same 23 tools, same rules. The plugin is a thin bridge: every message a coding
+agent sends over stdio is forwarded to the hosted connection under the key, so
+the tool list and the rules live in one place and the plugin is never behind
+them. The hosted connection is for everything else (Claude.ai connectors,
 ChatGPT, custom agents).
 
 ## What it gives the agent
 
 **Tools:** plan and price (`atrium_whoami`, `atrium_list_advertisers`,
 `atrium_list_networks`, `atrium_estimate`), build (`atrium_add_creative`,
-`atrium_create_campaign`, `atrium_update_campaign`, `atrium_add_product`),
+`atrium_create_campaign`, `atrium_update_campaign`, `atrium_add_product`,
+`atrium_list_creatives`, `atrium_get_creative`, `atrium_list_products`,
+`atrium_archive_campaign`, `atrium_archive_creative`, `atrium_archive_product`),
 launch (`atrium_launch_check`, `atrium_go_live`, `atrium_pause_campaign`,
 `atrium_resume_campaign`) and results (`atrium_list_campaigns`,
 `atrium_get_campaign`, `atrium_delivery`, `atrium_delivery_breakdown`,

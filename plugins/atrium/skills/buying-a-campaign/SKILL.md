@@ -48,6 +48,14 @@ Nothing airs and nothing is charged. Fix anything the API refuses: unknown
 network names come from `atrium_list_networks`, and a strategy on local
 stations cannot be nationwide.
 
+Optional fields worth asking the customer about: `click_url` on the campaign
+(where the ads send viewers, UTMs kept; otherwise the advertiser's booking URL
+or website), and `frequency_cap` on a strategy (`per_day` and `lifetime` ads
+per household; leave it out for the network default). A display strategy can
+carry a `site_list` (`block`: everywhere except these sites; `allow`: only
+these sites). Every campaign reads back with `pacing`: spend against even
+pacing over the flight, with a one-word `status`.
+
 ## 5. Check it
 
 `atrium_launch_check`. Three kinds of answer:
