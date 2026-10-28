@@ -22,7 +22,7 @@ with the API key as the bearer token:
 Authorization: Bearer atr_live_...
 ```
 
-Same 23 tools, same rules. The plugin is a thin bridge: every message a coding
+Same 33 tools, same rules. The plugin is a thin bridge: every message a coding
 agent sends over stdio is forwarded to the hosted connection under the key, so
 the tool list and the rules live in one place and the plugin is never behind
 them. The hosted connection is for everything else (Claude.ai connectors,
