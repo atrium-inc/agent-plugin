@@ -22,7 +22,7 @@ with the API key as the bearer token:
 Authorization: Bearer atr_live_...
 ```
 
-Same 23 tools, same rules. The plugin is a thin bridge: every message a coding
+Same tools, same rules. The plugin is a thin bridge: every message a coding
 agent sends over stdio is forwarded to the hosted connection under the key, so
 the tool list and the rules live in one place and the plugin is never behind
 them. The hosted connection is for everything else (Claude.ai connectors,
@@ -30,15 +30,30 @@ ChatGPT, custom agents).
 
 ## What it gives the agent
 
-**Tools:** plan and price (`atrium_whoami`, `atrium_list_advertisers`,
-`atrium_list_networks`, `atrium_estimate`), build (`atrium_add_creative`,
-`atrium_create_campaign`, `atrium_update_campaign`, `atrium_add_product`,
-`atrium_list_creatives`, `atrium_get_creative`, `atrium_list_products`,
-`atrium_archive_campaign`, `atrium_archive_creative`, `atrium_archive_product`),
-launch (`atrium_launch_check`, `atrium_go_live`, `atrium_pause_campaign`,
-`atrium_resume_campaign`) and results (`atrium_list_campaigns`,
-`atrium_get_campaign`, `atrium_delivery`, `atrium_delivery_breakdown`,
-`atrium_list_leads`).
+**Tools:** the list comes from the hosted connection (`tools/list`), so it is
+never behind the server. 70 tools on 2026-11-06, in these families:
+
+- Account and brand: who you are acting for, advertisers, the brand kit, the
+  wallet (`atrium_whoami`, `atrium_list_advertisers`, `atrium_get_brand`,
+  `atrium_wallet`).
+- Plan and price: networks, places, audience segments, estimates
+  (`atrium_list_networks`, `atrium_find_places`, `atrium_list_segments`,
+  `atrium_estimate`).
+- Creative and Studio: upload or link a commercial, or have Atrium make one
+  (`atrium_add_creative`, `atrium_studio_start` and the `atrium_studio_*` steps).
+- Campaigns: create, change, check, launch, pause, resume, archive
+  (`atrium_create_campaign`, `atrium_launch_check`, `atrium_go_live`).
+- Results: delivery, breakdowns, reach, leads, intelligence
+  (`atrium_delivery`, `atrium_delivery_breakdown`, `atrium_reach`,
+  `atrium_list_leads`, `atrium_intelligence`).
+- Customers and sales: people, stages, recorded sales, reports
+  (`atrium_list_customers`, `atrium_record_sale`, `atrium_customer_report`).
+- Chat TV and texting: threads, keywords, the sender application, texting
+  status, bookings, Calendly, the lead webhook, payouts
+  (`atrium_create_chat_tv_thread`, `atrium_check_keyword`,
+  `atrium_texting_status`, `atrium_set_webhook`).
+
+Ask the connection for `tools/list` to see every tool with its inputs.
 
 **Skills:** `setup` (connect an account), `atrium` (how the product fits
 together, and how to read its numbers honestly), `buying-tv` (how the supply

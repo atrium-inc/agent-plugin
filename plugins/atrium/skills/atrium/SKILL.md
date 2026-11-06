@@ -12,12 +12,22 @@ bookings that come back.
 
 ## What the tools here can do
 
+The hosted connection lists them (`tools/list`); trust that list over this
+page. The ones most questions start with:
+
 Plan and price: `atrium_whoami`, `atrium_list_advertisers`, `atrium_list_networks`,
 `atrium_estimate`, `atrium_list_products`. Build: `atrium_add_product`,
-`atrium_add_creative`, `atrium_create_campaign`, `atrium_update_campaign`.
+`atrium_add_creative` (or `atrium_studio_start` to have Atrium make the
+commercial), `atrium_create_campaign`, `atrium_update_campaign`.
 Launch: `atrium_launch_check`, `atrium_go_live`, `atrium_pause_campaign`,
 `atrium_resume_campaign`. Results: `atrium_list_campaigns`, `atrium_get_campaign`,
-`atrium_delivery`, `atrium_delivery_breakdown`, `atrium_list_leads`.
+`atrium_delivery`, `atrium_delivery_breakdown`, `atrium_reach`, `atrium_list_leads`.
+Beyond those: the brand kit, customers and recorded sales, Chat TV threads and
+texting, bookings and the lead webhook.
+
+When `atrium_launch_check` names a fix your key cannot make, its resolution
+also names the screen in the app (`screen` and `url`): hand that to the
+customer.
 
 **Money moves only under a launch key, and only under its cap.** A go-live
 above the key's spend cap, or from a key with no cap, is parked until the
