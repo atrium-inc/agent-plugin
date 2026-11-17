@@ -1,7 +1,8 @@
 # Atrium agent plugin
 
 Buy television from your coding agent. Plan, inspect and measure campaigns on
-the Atrium Performance Network from Claude Code, Codex or Cursor.
+the Atrium Performance Network from Claude Code. The plugin is for Claude Code
+only; other agents use the hosted connection below.
 
 ```
 /plugin marketplace add atrium-inc/agent-plugin
@@ -10,7 +11,13 @@ the Atrium Performance Network from Claude Code, Codex or Cursor.
 
 Then run the bundled **setup** skill. It walks through creating an API key at
 [app.atrium.run/developers](https://app.atrium.run/developers) and
-exporting it.
+exporting it. An API key is how customers connect today.
+
+## Before you start: agent access
+
+Agent access is off for each account until Atrium switches it on. An account
+owner requests it in the app. Until then every call answers
+`403 agents_access_off`.
 
 ## No install: the hosted connection
 
@@ -25,13 +32,17 @@ Authorization: Bearer atr_live_...
 Same tools, same rules. The plugin is a thin bridge: every message a coding
 agent sends over stdio is forwarded to the hosted connection under the key, so
 the tool list and the rules live in one place and the plugin is never behind
-them. The hosted connection is for everything else (Claude.ai connectors,
-ChatGPT, custom agents).
+them. With a key, the hosted connection works today for any agent that can
+send that header.
+
+**Sign in with Atrium** (OAuth, for the Claude app's connectors and ChatGPT,
+which cannot send a key) is staff only for now and coming soon for customers.
+Until then, use an API key.
 
 ## What it gives the agent
 
 **Tools:** the list comes from the hosted connection (`tools/list`), so it is
-never behind the server. 70 tools on 2026-11-06, in these families:
+never behind the server. 84 tools on 2026-11-17, in these families:
 
 - Account and brand: who you are acting for, advertisers, the brand kit, the
   wallet (`atrium_whoami`, `atrium_list_advertisers`, `atrium_get_brand`,
@@ -71,6 +82,14 @@ go-live above a cap, or from a key with no cap at all, is parked, and the
 account owner gets one email with one Approve link. Nothing spends until they
 click. The rule lives on the server, in the key, so no agent can loosen it. A
 **test** key runs every step with nothing charged.
+
+The first five agent launches on an account wait for the owner to approve them
+by email, whatever the cap.
+
+## Limits
+
+Each account has 2,000 calls a day, all keys together, counted in UTC. Over
+that, calls answer `429 rate_limited` with `Retry-After` until midnight UTC.
 
 ## Configuration
 
